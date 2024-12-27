@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>vn.edu.uit</groupId>
-	<artifactId>lms_se347</artifactId>
+	<artifactId>website_ban_sach</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>lms_se347</name>
-	<description>project môn học SE347, một website lms đơn giản</description>
+	<name>website_ban_sach</name>
+	<description>project môn học SE347, một website bán sách đơn giản</description>
 	<url/>
 	<licenses>
 		<license/>
