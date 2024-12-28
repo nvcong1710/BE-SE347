@@ -61,11 +61,6 @@ public class SachController {
         return sachService.getSachMoi();
     }
 
-    @GetMapping("/loctheogia/{min}-{max}/{id}")
-    public List<SachDTO> locTheoGia(@PathVariable("min") Integer min, @PathVariable("max") Integer max, @PathVariable("id") Long id){
-        return sachService.locTheoGia(min, max, id);
-    }
-
     @GetMapping("/getsachbyid/{id}")
     public SachDTO getSachById(@PathVariable("id") Long id){
         return sachService.getSachById(id);
@@ -74,6 +69,11 @@ public class SachController {
     @GetMapping("/getsachbytacgia/{id}")
     public List<SachDTO> getSachByTacGia(@PathVariable("id") Long id){
         return sachService.getSachByTacGia(id);
+    }
+
+    @GetMapping("/loctheogia/{min}-{max}/{id}")
+    public List<SachDTO> locTheoGia(@PathVariable("min") Integer min, @PathVariable("max") Integer max, @PathVariable("id") Long id){
+        return sachService.locTheoGia(min, max, id);
     }
 
     @GetMapping("/timsachtheotieude/{tieude}")
