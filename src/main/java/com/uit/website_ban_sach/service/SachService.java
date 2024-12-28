@@ -8,7 +8,6 @@ import com.uit.website_ban_sach.entity.Sach;
 import com.uit.website_ban_sach.entity.TacGia;
 import com.uit.website_ban_sach.mapper.DanhMucMapper;
 import com.uit.website_ban_sach.mapper.SachMapper;
-import com.uit.website_ban_sach.repository.DanhMucRepository;
 import com.uit.website_ban_sach.repository.SachRepository;
 import com.uit.website_ban_sach.repository.TacGiaRepository;
 import com.uit.website_ban_sach.service.service_interface.ISachService;
@@ -32,8 +31,6 @@ public class SachService implements ISachService {
     };
     @Autowired
     private SachRepository sachRepository;
-    @Autowired
-    private DanhMucRepository danhMucRepository;
     @Autowired
     private DanhMucService danhMucService;
     @Autowired
