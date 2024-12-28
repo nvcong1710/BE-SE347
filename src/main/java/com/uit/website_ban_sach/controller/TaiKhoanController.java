@@ -9,7 +9,6 @@ import com.uit.website_ban_sach.security.user_details.CustomUserDetails;
 import com.uit.website_ban_sach.service.TaiKhoanService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -29,22 +28,6 @@ public class TaiKhoanController {
     private TaiKhoanService taiKhoanService;
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
-
-
-//    @PostMapping("/register")
-//    public ResponseEntity<?> register(@RequestBody TaiKhoan taiKhoan) {
-//        TaiKhoan tk = taiKhoanService.register(taiKhoan);
-//        if (tk == null) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Tài khoản đã tồn tại");
-//        } else return ResponseEntity.ok(taiKhoan);
-//    }
-
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-//        TaiKhoanDTO account = taiKhoanService.login(loginRequest);
-//        if (account != null) return ResponseEntity.ok(account);
-//        else return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Login fail");
-//    }
 
     @PostMapping("/register-user")
     public ResponseEntity<?> registerUser(@RequestBody TaiKhoan user) {

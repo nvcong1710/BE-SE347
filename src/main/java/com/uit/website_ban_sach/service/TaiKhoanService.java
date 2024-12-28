@@ -6,11 +6,9 @@ import com.uit.website_ban_sach.entity.TaiKhoan;
 import com.uit.website_ban_sach.mapper.TaiKhoanMapper;
 import com.uit.website_ban_sach.repository.RoleRepository;
 import com.uit.website_ban_sach.repository.TaiKhoanRepository;
-import com.uit.website_ban_sach.security.jwt.JwtUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,22 +26,11 @@ public class TaiKhoanService {
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
 
-    @Autowired
-    private JwtUtils jwtUtil;
-
     @Value("${auth.token.jwtSecret}")
     private String jwtSecret;
-    @Autowired
-    private AuthenticationManager authenticationManager;
 
     @Value("${auth.token.expirationInMils}")
     private int jwtExpirationMs;
-
-//    public TaiKhoan register(TaiKhoan taiKhoan) {
-//        TaiKhoan tk = taiKhoanRepository.findByUsername(taiKhoan.getUsername());
-//        if (tk == null) return taiKhoanRepository.save(taiKhoan);
-//        else return null;
-//    }
 
     public TaiKhoan registerUser(TaiKhoan user) throws Exception {
         if (userRepository.existsByEmail(user.getEmail())){
@@ -54,14 +41,6 @@ public class TaiKhoanService {
         user.setRoles(Collections.singletonList(userRole));
         return userRepository.save(user);
     }
-
-//    public TaiKhoanDTO login(LoginRequest loginRequest){
-//        TaiKhoan taiKhoan = taiKhoanRepository.findByUsername(loginRequest.getUsername());
-//        if(taiKhoan != null && taiKhoan.getPassword().equals(loginRequest.getPassword())){
-//            return TaiKhoanMapper.mapToTaiKhoanDTO(taiKhoan);
-//        }
-//        else return null;
-//    }
 
     public List<TaiKhoanDTO> getAllTaiKhoan() {
         List<TaiKhoanDTO> res = new ArrayList<>();
