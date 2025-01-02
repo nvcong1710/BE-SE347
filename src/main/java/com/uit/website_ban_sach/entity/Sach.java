@@ -20,6 +20,8 @@ public class Sach {
     private BigDecimal gia;
     private Integer soLuong;
     private String photoURL;
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String moTa;
     private LocalDateTime ngayTao;
 
